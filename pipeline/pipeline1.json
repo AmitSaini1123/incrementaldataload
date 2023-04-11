@@ -50,11 +50,22 @@
 				"outputs": [
 					{
 						"referenceName": "Sales_Invoice_Header",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": {
+								"value": "@concat('pipeline().parameters.File',formatDateTime(utcnow(),'yyyMMdd_HHmmss'),'.csv')",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
 		],
+		"parameters": {
+			"File": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
