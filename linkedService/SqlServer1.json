@@ -5,8 +5,8 @@
 		"annotations": [],
 		"type": "SqlServer",
 		"typeProperties": {
-			"connectionString": "integrated security=False;data source=QDI;initial catalog=O2C_Compose;user id=sa",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI0YjEyOTdjMC1mMmI5LTRmNWEtYWU2YS01ZTliNzliNmUxYmIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"connectionString": "integrated security=False;data source=QDI;initial catalog=\"Demo Database BC (19-0)\";user id=sa",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJkYTI2MGNlYS00ZTkwLTRhNjgtOGU2Mi0zYTA0OTU2Zjk3MTkiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "integrationRuntime",
