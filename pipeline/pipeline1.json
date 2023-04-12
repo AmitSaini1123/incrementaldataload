@@ -53,7 +53,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"FileName": {
-								"value": "@concat(substring(formatDateTime(utcnow(),'yyyy'),0,4),'',substring(formatDateTime(utcnow(),'MM'),0,2),'',pipeline().parameters.File,'.csv')",
+								"value": "@concat(substring(formatDateTime(utcnow(),'yyyy'),0,4),'_',substring(formatDateTime(utcnow(),'MM'),0,2),'_',pipeline().parameters.File,'.csv')",
 								"type": "Expression"
 							}
 						}
