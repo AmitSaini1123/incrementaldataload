@@ -31,7 +31,7 @@
 					"source": {
 						"type": "SqlServerSource",
 						"sqlReaderQuery": {
-							"value": "select * from MOCK_DATA where Date_field > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and Date_field <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'",
+							"value": "Select * from MOCK_DATA where Date_field > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and Date_field <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -116,7 +116,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "select MAX(Date_field) as NewWatermarkvalue from MOCK_DATA",
+						"sqlReaderQuery": "Select MAX(Date_field) as NewWatermarkvalue from MOCK_DATA",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
