@@ -20,43 +20,12 @@
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
-					"sink": {
-						"type": "DelimitedTextSink",
-						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
-						},
-						"formatSettings": {
-							"type": "DelimitedTextWriteSettings",
-							"quoteAllText": true,
-							"fileExtension": ".txt"
-						}
-					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
+					"enableStaging": false
 				},
 				"inputs": [
 					{
 						"referenceName": "SqlServerTable1",
 						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "Sales_Invoice_Header",
-						"type": "DatasetReference",
-						"parameters": {
-							"FileName": {
-								"value": "@concat(substring(formatDateTime(utcnow(),'yyyy'),0,4),'_',substring(formatDateTime(utcnow(),'MM'),0,2),'_',pipeline().parameters.File,'.csv')",
-								"type": "Expression"
-							}
-						}
 					}
 				]
 			}

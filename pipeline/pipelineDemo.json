@@ -31,34 +31,8 @@
 							"fileExtension": ".txt"
 						}
 					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "Mock_data_Table",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "Mock_data_Set",
-						"type": "DatasetReference",
-						"parameters": {
-							"FileName": {
-								"value": "@concat(substring(formatDateTime(utcnow(),'yyyy'),0,4),'_',substring(formatDateTime(utcnow(),'MM'),0,2),'_',pipeline().parameters.File,'.csv')",
-								"type": "Expression"
-							}
-						}
-					}
-				]
+					"enableStaging": false
+				}
 			}
 		],
 		"parameters": {
