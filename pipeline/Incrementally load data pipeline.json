@@ -124,7 +124,7 @@
 						"referenceName": "MOCK_DataSet",
 						"type": "DatasetReference"
 					},
-					"firstRowOnly": true
+					"firstRowOnly": false
 				}
 			},
 			{
