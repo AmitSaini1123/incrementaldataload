@@ -70,7 +70,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"FileName": {
-								"value": "@concat(substring(formatDateTime(utcnow(),'yyyy'),0,4),'_',substring(formatDateTime(utcnow(),'MM'),0,2),'_',pipeline().RunId,pipeline().parameters.File,'.csv')",
+								"value": "@concat(activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue,'.csv')\n\n",
 								"type": "Expression"
 							}
 						}
