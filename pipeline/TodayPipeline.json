@@ -17,7 +17,6 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "select MAX(Date_field) as NewDate_field from MOCK_DATA",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
