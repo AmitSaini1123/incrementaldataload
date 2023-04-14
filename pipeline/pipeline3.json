@@ -1,11 +1,18 @@
 {
-	"name": "pipeline1",
+	"name": "pipeline3",
 	"properties": {
 		"activities": [
 			{
 				"name": "Copy data1",
 				"type": "Copy",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Get Metadata",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -17,7 +24,6 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -50,10 +56,53 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "incrementaldata",
-						"type": "DatasetReference"
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": {
+								"value": "@adddays(activity('Get Metadata').output.firstRow.lastModifiedDate, 1)",
+								"type": "Expression"
+							}
+						}
 					}
 				]
+			},
+			{
+				"name": "Get Metadata",
+				"type": "GetMetadata",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "incrementaldata",
+						"type": "DatasetReference"
+					},
+					"fieldList": [
+						"lastModified"
+					],
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"modifiedDatetimeStart": {
+							"value": "@adddays(utcNow(),-1)\n",
+							"type": "Expression"
+						},
+						"modifiedDatetimeEnd": {
+							"value": "@utcNow()",
+							"type": "Expression"
+						},
+						"enablePartitionDiscovery": false
+					},
+					"formatSettings": {
+						"type": "DelimitedTextReadSettings"
+					}
+				}
 			}
 		],
 		"annotations": []
