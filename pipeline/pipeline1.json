@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "AzureSqlSource",
+						"type": "SqlServerSource",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -43,13 +43,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "OrderTable",
+						"referenceName": "SqlServerTable2",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "OrderTables1",
+						"referenceName": "incrementaldata",
 						"type": "DatasetReference"
 					}
 				]

@@ -540,7 +540,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "CRONUS India Ltd_$Sales Invoice Header$437dbf0e-84ff-417a-965d-ed2bb9650972"
+			"table": "MOCK_DATA"
 		}
 	}
 }
