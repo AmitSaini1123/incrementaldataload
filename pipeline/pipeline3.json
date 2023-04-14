@@ -57,13 +57,7 @@
 				"outputs": [
 					{
 						"referenceName": "DelimitedText1",
-						"type": "DatasetReference",
-						"parameters": {
-							"FileName": {
-								"value": "@adddays(activity('Get Metadata').output.firstRow.lastModifiedDate, 1)",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					}
 				]
 			},
@@ -90,7 +84,7 @@
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
 						"modifiedDatetimeStart": {
-							"value": "@adddays(utcNow(),-1)\n",
+							"value": "@adddays(utcNow(),1)\n",
 							"type": "Expression"
 						},
 						"modifiedDatetimeEnd": {
