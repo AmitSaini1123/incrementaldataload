@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "Transactional/incrementsecond",
+				"fileName": "2022-04-29T01:09:45.csv",
+				"folderPath": "Transactional/Increment",
 				"fileSystem": "rawdata"
 			},
 			"columnDelimiter": ",",
