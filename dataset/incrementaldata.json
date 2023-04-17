@@ -10,8 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "2022-04-29T01:09:45.csv",
-				"folderPath": "Transactional/Increment",
+				"folderPath": "Supriya/Transactional/incrementoutput",
 				"fileSystem": "rawdata"
 			},
 			"columnDelimiter": ",",

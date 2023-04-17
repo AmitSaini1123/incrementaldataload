@@ -6,10 +6,13 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "MOCK_DataSet",
+						"referenceName": "DelimitedText1",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
+				},
+				{
+					"name": "source2"
 				}
 			],
 			"sinks": [
@@ -27,24 +30,15 @@
 			],
 			"transformations": [],
 			"scriptLines": [
-				"source(output(",
-				"          id as integer,",
-				"          first_name as string,",
-				"          last_name as string,",
-				"          email as string,",
-				"          gender as string,",
-				"          ip_address as string,",
-				"          Date_field as timestamp",
-				"     ),",
-				"     allowSchemaDrift: true,",
+				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
 				"     enableCdc: true,",
 				"     mode: 'read',",
 				"     skipInitialLoad: false,",
-				"     waterMarkColumn: 'Date_field',",
-				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     query: 'SELECT MAX (Date_field) AS \"Max Date\" \\nFROM MOCK_DATA;',",
-				"     format: 'query') ~> source1",
+				"     waterMarkColumn: 'Date_field') ~> source1",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false) ~> source2",
 				"source1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'delta',",
