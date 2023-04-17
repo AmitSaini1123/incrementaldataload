@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@concat('data_',formatDateTime(convertTimeZone(utcNow(),'UTC','India Standard Time'),'yyyMMdd_HHmmss'),'.csv')",
+					"value": "@concat('data_',formatDateTime(convertTimeZone(utcNow(),'UTC','India Standard Time'),'yyyMMdd_hhmmss'),'.csv')",
 					"type": "Expression"
 				},
 				"folderPath": "Supriya/Transactional/incrementoutput",
