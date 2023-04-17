@@ -5,57 +5,34 @@
 		"typeProperties": {
 			"sources": [
 				{
-					"linkedService": {
-						"referenceName": "AzureDataLakeStorageLinkedService",
-						"type": "LinkedServiceReference"
-					},
-					"name": "source1"
-				},
-				{
 					"dataset": {
-						"referenceName": "SqlServerTable4",
+						"referenceName": "DelimitedText1",
 						"type": "DatasetReference"
 					},
-					"name": "source2"
+					"name": "source1"
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "select1"
+				}
+			],
 			"scriptLines": [
-				"source(output(",
-				"          id as integer,",
-				"          first_name as string,",
-				"          last_name as string,",
-				"          email as string,",
-				"          gender as string,",
-				"          ip_address as string,",
-				"          Date_field as timestamp",
-				"     ),",
-				"     useSchema: false,",
-				"     allowSchemaDrift: true,",
+				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false,",
-				"     format: 'delimited',",
-				"     fileSystem: 'rawdata',",
-				"     folderPath: 'Transactional/incrementsecond',",
-				"     fileName: 'dbo.MOCK_DATA.csv',",
-				"     columnDelimiter: ',',",
-				"     escapeChar: '\\\\',",
-				"     quoteChar: '\\\"',",
-				"     columnNamesAsHeader: true) ~> source1",
-				"source(output(",
-				"          id as integer,",
-				"          first_name as string,",
-				"          last_name as string,",
-				"          email as string,",
-				"          gender as string,",
-				"          ip_address as string,",
-				"          Date_field as timestamp",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 select(mapColumn(",
+				"          id,",
+				"          first_name,",
+				"          last_name,",
+				"          email,",
+				"          gender,",
+				"          ip_address,",
+				"          Date_field",
 				"     ),",
-				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> source2"
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1"
 			]
 		}
 	}
