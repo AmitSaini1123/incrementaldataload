@@ -17,7 +17,6 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "SELECT MAX (Date_field) AS \"Max Date\" \nFROM MOCK_DATA;",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -56,6 +55,11 @@
 				]
 			}
 		],
+		"parameters": {
+			"Last_Modified_Date": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
