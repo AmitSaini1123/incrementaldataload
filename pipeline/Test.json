@@ -1,5 +1,5 @@
 {
-	"name": "pipeline5_copy1",
+	"name": "Test",
 	"properties": {
 		"activities": [
 			{
@@ -17,10 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": {
-							"value": " SELECT * \r\nFROM MOCK_DATA\r\nWHERE Date_field >= '@{formatDateTime(pipeline().parameters.Date_field, 'yyyy-MM-dd HH:mm:ss')}'\r\n",
-							"type": "Expression"
-						},
+						"sqlReaderQuery": "SELECT * FROM MOCK_DATA\nWHERE Date_field >= '@{formatDateTime(pipeline().parameters.Date_field, 'yyyy-MM-dd HH:mm:ss')}'",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -59,6 +56,11 @@
 				]
 			}
 		],
+		"parameters": {
+			"Date_Field": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }

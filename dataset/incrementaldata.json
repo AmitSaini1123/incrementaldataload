@@ -5,18 +5,13 @@
 			"referenceName": "AzureDataLakeStorageLinkedService",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"FileName": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@concat('data_',formatDateTime(utcNow(),'yyyMMdd_HHmmss'),'.csv')",
+					"value": "@concat('data_',formatDateTime(convertTimeZone(utcNow(),'UTC','India Standard Time'),'yyyMMdd_HHmmss'),'.csv')",
 					"type": "Expression"
 				},
 				"folderPath": "Supriya/Transactional/incrementoutput",
