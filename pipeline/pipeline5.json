@@ -55,11 +55,6 @@
 				]
 			}
 		],
-		"parameters": {
-			"Last_Modified_Date": {
-				"type": "string"
-			}
-		},
 		"annotations": []
 	}
 }
